@@ -145,11 +145,11 @@
             <string>$ALWAYS_USAGE_DESCRIPTION</string>
         </config-file>
 
-        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+<!--         <config-file target="*-Info.plist" parent="UIBackgroundModes">
             <array>
                 <string>location</string>
             </array>
-        </config-file>
+        </config-file> -->
 
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
             <array>
