@@ -104,13 +104,7 @@ enum {
         DDLogInfo(@"Network is now unreachable");
         hasConnectivity = NO;
     };
-
-
-//     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
-//         DDLogDebug(@"LocationManager iOS9 detected");
-//         locationManager.allowsBackgroundLocationUpdates = YES;
-//     }
-
+    
     locationManager.delegate = self;
 
     localNotification = [[UILocalNotification alloc] init];
@@ -154,6 +148,11 @@ enum {
     locationManager.activityType = [_config decodeActivityType];
     locationManager.distanceFilter = _config.distanceFilter; // meters
     locationManager.desiredAccuracy = [_config decodeDesiredAccuracy];
+    
+    if (!_config.saveBatteryOnBackground && SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
+        DDLogDebug(@"LocationManager iOS9 detected");
+        locationManager.allowsBackgroundLocationUpdates = YES;
+    }
 
     // ios 8 requires permissions to send local-notifications
     if (_config.isDebugging) {
