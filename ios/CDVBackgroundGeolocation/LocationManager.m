@@ -106,10 +106,10 @@ enum {
     };
 
 
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
-        DDLogDebug(@"LocationManager iOS9 detected");
-        locationManager.allowsBackgroundLocationUpdates = YES;
-    }
+//     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
+//         DDLogDebug(@"LocationManager iOS9 detected");
+//         locationManager.allowsBackgroundLocationUpdates = YES;
+//     }
 
     locationManager.delegate = self;
 
